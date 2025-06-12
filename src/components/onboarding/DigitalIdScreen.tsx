@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Share2, Download, Smartphone } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 
 interface DigitalIdScreenProps {
   onNext: () => void;
@@ -10,117 +9,40 @@ interface DigitalIdScreenProps {
 
 const DigitalIdScreen = ({ onNext, onPrev }: DigitalIdScreenProps) => {
   return (
-    <div className="px-6 py-8 flex flex-col justify-between min-h-[calc(100vh-120px)]">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
-          Quick Access to Your ID Card
+    <div className="px-6 py-8 flex flex-col min-h-[calc(100vh-120px)]">
+      <div className="text-center space-y-8 flex-1 flex flex-col justify-center">
+        <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+          ID Card On The Go!
         </h1>
-        <p className="text-gray-600 mb-8">
-          Your digital ID card is always available when you need it. No more lost cards!
-        </p>
-
-        {/* Sample ID Card */}
-        <Card className="p-6 mb-6 bg-gradient-to-br from-[#C53E5E] to-[#A02D47] text-white">
-          <div className="flex justify-between items-start mb-6">
-            <div>
-              <h3 className="text-lg font-semibold">Medical</h3>
-              <p className="text-sm opacity-90">Medical ID Card</p>
-            </div>
-            <div className="text-right">
-              <h3 className="text-lg font-semibold">Dental</h3>
-            </div>
+        
+        {/* ID Card Preview */}
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full max-w-sm h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+            <ImageIcon className="w-16 h-16 text-gray-400" />
           </div>
-
-          <div className="flex items-center space-x-4 mb-6">
-            <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
-              <span className="text-[#C53E5E] font-bold text-xs">MVP</span>
-            </div>
-            <div className="text-xs opacity-90">Medicare Gold</div>
-          </div>
-
-          <div className="space-y-2">
-            <div>
-              <p className="text-sm font-semibold">Jane Smith</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4 text-xs">
-              <div>
-                <p className="opacity-75">RxBIN:</p>
-                <p>156563</p>
-              </div>
-              <div>
-                <p className="opacity-75">RxPCN:</p>
-                <p>XXX</p>
-              </div>
-              <div>
-                <p className="opacity-75">RxGRP:</p>
-                <p>MYXXXXX</p>
-              </div>
-            </div>
-            <p className="text-sm">1234567890</p>
-          </div>
-
-          <div className="mt-6 pt-4 border-t border-white/20">
-            <div className="grid grid-cols-2 gap-4 text-xs">
-              <div>
-                <p className="opacity-75">Plan Type</p>
-                <p>Medicare Gold</p>
-              </div>
-              <div>
-                <p className="opacity-75">Group No</p>
-                <p>WJ1500MM001</p>
-              </div>
-              <div>
-                <p className="opacity-75">Member ID</p>
-                <p>1234567890</p>
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        {/* Share Card Button */}
-        <Button 
-          variant="outline" 
-          className="w-full mb-6 border-[#C53E5E] text-[#C53E5E] hover:bg-red-50 py-3"
-        >
-          <Share2 className="w-4 h-4 mr-2" />
-          Share Card
-        </Button>
-
-        {/* Features */}
-        <div className="space-y-4">
-          <div className="flex items-center space-x-4 p-4 bg-red-50 rounded-lg">
-            <Smartphone className="w-6 h-6 text-[#C53E5E]" />
-            <div>
-              <h4 className="font-semibold text-gray-900">Always Available</h4>
-              <p className="text-sm text-gray-600">Access your ID card anytime, even offline</p>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4 p-4 bg-red-50 rounded-lg">
-            <Share2 className="w-6 h-6 text-[#C53E5E]" />
-            <div>
-              <h4 className="font-semibold text-gray-900">Easy Sharing</h4>
-              <p className="text-sm text-gray-600">Share with providers or pharmacy instantly</p>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4 p-4 bg-red-50 rounded-lg">
-            <Download className="w-6 h-6 text-[#C53E5E]" />
-            <div>
-              <h4 className="font-semibold text-gray-900">Download & Print</h4>
-              <p className="text-sm text-gray-600">Get a physical copy when needed</p>
-            </div>
-          </div>
+        </div>
+        
+        <div className="space-y-6">
+          <p className="text-sm text-gray-600 leading-relaxed text-center px-4">
+            Access your digital ID card anytime, anywhere. No more worrying about forgetting your physical card at medical appointments.
+          </p>
         </div>
       </div>
 
-      <Button 
-        onClick={onNext}
-        className="w-full bg-[#C53E5E] hover:bg-[#A02D47] text-white py-4 text-lg font-semibold rounded-xl mt-8"
-        size="lg"
-      >
-        Continue
-      </Button>
+      <div className="space-y-3 pt-6">
+        <Button 
+          variant="ghost" 
+          className="w-full text-gray-600 hover:text-gray-800"
+        >
+          Download ID Card
+        </Button>
+        <Button 
+          onClick={onNext}
+          className="w-full bg-gray-600 hover:bg-gray-700 text-white"
+        >
+          Continue
+        </Button>
+      </div>
     </div>
   );
 };

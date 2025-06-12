@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Phone, MessageCircle, Video, Clock } from "lucide-react";
+import { Heart, MessageCircle, Users } from "lucide-react";
 
 interface VirtualCareScreenProps {
   onNext: () => void;
@@ -10,95 +9,73 @@ interface VirtualCareScreenProps {
 
 const VirtualCareScreen = ({ onNext, onPrev }: VirtualCareScreenProps) => {
   return (
-    <div className="px-6 py-8 flex flex-col justify-between min-h-[calc(100vh-120px)]">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
-          Virtual Care Wherever You Are
+    <div className="px-6 py-8 space-y-8">
+      <div className="text-center space-y-4">
+        <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+          Unlock the Power of You
         </h1>
-        <p className="text-gray-600 mb-8">
-          Talk to certified healthcare professionals, 24/7. Select an option below that works best for you.
-        </p>
+      </div>
 
-        {/* Virtual Care Options */}
-        <div className="space-y-4 mb-8">
-          <Card className="p-6 border border-gray-200">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-                <Phone className="w-6 h-6 text-[#C53E5E]" />
+      <div className="space-y-8">
+        {/* 24/7 Virtual Care */}
+        <div className="text-center space-y-4">
+          <div className="flex justify-center">
+            <div className="relative">
+              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
+                <Users className="w-8 h-8 text-gray-600" />
               </div>
-              <div>
-                <h3 className="font-semibold text-[#C53E5E]">Urgent Care</h3>
-                <p className="text-sm text-gray-600">Avg response time: 20 min</p>
+              <div className="absolute -top-1 -right-1 w-6 h-6 bg-black rounded-full flex items-center justify-center">
+                <MessageCircle className="w-3 h-3 text-white" />
               </div>
             </div>
-            <p className="text-sm text-gray-600 mb-4">
-              For urgent medical needs, such as new or worsening cold and flu symptoms, minor injuries, urgent prescriptions.
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">24/7 $0 Virtual Care</h3>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              For behavioral health care, urgent care, everyday care, nutrition and diet, and more.
             </p>
-            <div className="flex space-x-2">
-              <Button variant="outline" size="sm" className="text-[#C53E5E] border-[#C53E5E]">
-                Phone Call
-              </Button>
-              <Button variant="outline" size="sm" className="text-[#C53E5E] border-[#C53E5E]">
-                In-App Messaging
-              </Button>
-            </div>
-          </Card>
-
-          <Card className="p-6 border border-gray-200">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-                <MessageCircle className="w-6 h-6 text-[#C53E5E]" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-[#C53E5E]">Everyday Health Care</h3>
-                <p className="text-sm text-gray-600">Avg response time: 2 hours</p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-600 mb-4">
-              For most medical needs, such as cold and flu, UTIs, dermatology, birth control, prescriptions, and diabetes.
-            </p>
-          </Card>
-
-          <Card className="p-6 border border-gray-200">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-                <Video className="w-6 h-6 text-[#C53E5E]" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-[#C53E5E]">Behavioral Health Care</h3>
-                <p className="text-sm text-gray-600">Appts. within 7-14 days</p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-600 mb-4">
-              For mental and behavioral health needs such as therapy and medication management.
-            </p>
-            <Button variant="outline" size="sm" className="text-[#C53E5E] border-[#C53E5E]">
-              Video Appointment
-            </Button>
-          </Card>
+          </div>
         </div>
 
-        {/* Key Benefits */}
-        <div className="bg-green-50 rounded-lg p-4">
-          <div className="flex items-center space-x-2 mb-2">
-            <Clock className="w-5 h-5 text-green-600" />
-            <span className="font-semibold text-green-800">Available 24/7</span>
+        {/* Free Preventive Care */}
+        <div className="text-center space-y-4">
+          <div className="flex justify-center">
+            <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
+              <Heart className="w-8 h-8 text-gray-600" />
+            </div>
           </div>
-          <ul className="space-y-1 text-sm text-green-700">
-            <li>✓ Urgent Care</li>
-            <li>✓ Behavioral Health Care</li>
-            <li>✓ Everyday Care, and More!</li>
-          </ul>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Free Preventive Care</h3>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Preventive screenings, immunizations, counseling, pregnancy-related care, child well-visits, and more are all covered for free under your plan with in-network providers under the Affordable Care Act.
+            </p>
+          </div>
+        </div>
+
+        {/* Well-Being Reimbursements */}
+        <div className="text-center space-y-4">
+          <div className="flex justify-center">
+            <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
+              <Heart className="w-8 h-8 text-gray-600 fill-current" />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">$600 Well-Being Reimbursements</h3>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              We'll reimburse you up to $600 in your plan year for purchases that benefit your well-being for things like gym memberships, yoga classes, fitness tracking devices, museum entrance fees, etc.
+            </p>
+          </div>
         </div>
       </div>
 
-      <Button 
-        onClick={onNext}
-        className="w-full bg-[#C53E5E] hover:bg-[#A02D47] text-white py-4 text-lg font-semibold rounded-xl mt-8"
-        size="lg"
-      >
-        Continue
-      </Button>
+      <div className="pt-6">
+        <Button 
+          onClick={onNext}
+          className="w-full bg-gray-600 hover:bg-gray-700 text-white"
+        >
+          Continue
+        </Button>
+      </div>
     </div>
   );
 };

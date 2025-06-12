@@ -1,6 +1,9 @@
 
 import { Button } from "@/components/ui/button";
-import { Heart, Shield, Smartphone } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Globe, MessageSquare } from "lucide-react";
 
 interface WelcomeScreenProps {
   onNext: () => void;
@@ -8,61 +11,112 @@ interface WelcomeScreenProps {
 
 const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
   return (
-    <div className="px-6 py-8 flex flex-col justify-between min-h-[calc(100vh-120px)]">
-      <div className="text-center">
-        {/* Gia Logo */}
-        <div className="w-20 h-20 bg-[#C53E5E] rounded-2xl mx-auto mb-8 flex items-center justify-center">
-          <span className="text-white text-3xl font-bold italic">Gia</span>
+    <div className="px-6 py-8 space-y-8">
+      <div className="text-center space-y-4">
+        <h1 className="text-2xl font-bold text-gray-900 leading-tight">
+          Let's Personalize Your Gia Experience!
+        </h1>
+      </div>
+
+      <div className="space-y-6">
+        {/* Language Preference */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <Globe className="w-6 h-6 text-gray-600" />
+            <Label className="text-lg font-semibold text-gray-900">Language Preference</Label>
+          </div>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            Select your preferred language for a personalized experience that makes navigating your benefits easier.
+          </p>
+          <Select defaultValue="english">
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select language" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="english">English</SelectItem>
+              <SelectItem value="spanish">Español</SelectItem>
+              <SelectItem value="french">Français</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          Welcome to Gia
-        </h1>
-        <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-          Let's get you connected with your health benefits and show you how to make the most of your coverage.
-        </p>
-
-        {/* Feature highlights */}
-        <div className="space-y-6 mb-12">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-              <Heart className="w-6 h-6 text-[#C53E5E]" />
-            </div>
-            <div className="text-left">
-              <h3 className="font-semibold text-gray-900">Virtual Care 24/7</h3>
-              <p className="text-sm text-gray-600">Talk to certified healthcare professionals anytime</p>
-            </div>
+        {/* Communication Preferences */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <MessageSquare className="w-6 h-6 text-gray-600" />
+            <Label className="text-lg font-semibold text-gray-900">Communication Preferences</Label>
           </div>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            Choose how you'd like to receive important updates about your health plan and benefits.
+          </p>
+          
+          <div className="space-y-4">
+            {/* Email Preferences */}
+            <div className="flex items-center justify-between">
+              <span className="text-base text-gray-700">Email Preferences</span>
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="sr-only"
+                  id="email-toggle"
+                />
+                <label
+                  htmlFor="email-toggle"
+                  className="block w-14 h-8 rounded-full bg-[#C53E5E] cursor-pointer relative"
+                >
+                  <span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform translate-x-6"></span>
+                </label>
+              </div>
+            </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-              <Shield className="w-6 h-6 text-[#C53E5E]" />
+            {/* Text Message */}
+            <div className="flex items-center justify-between">
+              <span className="text-base text-gray-700">Text Message</span>
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  className="sr-only"
+                  id="text-toggle"
+                />
+                <label
+                  htmlFor="text-toggle"
+                  className="block w-14 h-8 rounded-full bg-gray-300 cursor-pointer relative"
+                >
+                  <span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform"></span>
+                </label>
+              </div>
             </div>
-            <div className="text-left">
-              <h3 className="font-semibold text-gray-900">Digital ID Card</h3>
-              <p className="text-sm text-gray-600">Quick access to your member information</p>
-            </div>
-          </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-              <Smartphone className="w-6 h-6 text-[#C53E5E]" />
-            </div>
-            <div className="text-left">
-              <h3 className="font-semibold text-gray-900">Easy Self-Service</h3>
-              <p className="text-sm text-gray-600">Manage your plan and find care on your own</p>
+            {/* Push Notifications */}
+            <div className="flex items-center justify-between">
+              <span className="text-base text-gray-700">Push Notifications</span>
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="bg-gray-600 text-white border-gray-600 hover:bg-gray-700"
+              >
+                Turn On
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
-      <Button 
-        onClick={onNext}
-        className="w-full bg-[#C53E5E] hover:bg-[#A02D47] text-white py-4 text-lg font-semibold rounded-xl"
-        size="lg"
-      >
-        Get Started
-      </Button>
+      <div className="space-y-3 pt-6">
+        <Button 
+          variant="ghost" 
+          className="w-full text-gray-600 hover:text-gray-800"
+        >
+          Skip
+        </Button>
+        <Button 
+          onClick={onNext}
+          className="w-full bg-gray-600 hover:bg-gray-700 text-white"
+        >
+          Confirm Preferences
+        </Button>
+      </div>
     </div>
   );
 };
