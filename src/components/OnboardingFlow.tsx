@@ -34,14 +34,23 @@ const OnboardingFlow = () => {
 
   return (
     <div className="max-w-md mx-auto min-h-screen bg-white relative">
-      {/* Progress Bar */}
+      {/* Progress Bar with Gia Branding */}
       <div className="sticky top-0 z-10 bg-white px-6 pt-6 pb-4 border-b border-gray-100">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 bg-[#C53E5E] rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-lg">G</span>
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-gray-900">Gia</h2>
+            <p className="text-xs text-gray-600">Your Health Assistant</p>
+          </div>
+        </div>
         <Progress 
           value={(currentStep + 1) / totalSteps * 100} 
-          className="h-2"
+          className="h-3"
         />
-        <div className="flex justify-between items-center mt-2">
-          <span className="text-sm text-gray-600">
+        <div className="flex justify-between items-center mt-3">
+          <span className="text-sm text-gray-600 font-medium">
             Step {currentStep + 1} of {totalSteps}
           </span>
           {currentStep > 0 && (
@@ -49,16 +58,16 @@ const OnboardingFlow = () => {
               variant="ghost" 
               size="sm" 
               onClick={prevStep}
-              className="text-[#C53E5E] hover:text-[#A02D47]"
+              className="text-[#C53E5E] hover:text-[#A02D47] hover:bg-[#C53E5E]/5 transition-all duration-200"
             >
-              Back
+              ← Back
             </Button>
           )}
         </div>
       </div>
 
-      {/* Screen Content */}
-      <div className="flex-1">
+      {/* Screen Content with Animation */}
+      <div className="flex-1 animate-fade-in">
         {screens[currentStep]}
       </div>
     </div>

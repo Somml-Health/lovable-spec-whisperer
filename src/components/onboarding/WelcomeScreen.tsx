@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { Globe, MessageSquare } from "lucide-react";
+import { Globe, MessageSquare, Sparkles } from "lucide-react";
 
 interface WelcomeScreenProps {
   onNext: () => void;
@@ -12,9 +12,28 @@ interface WelcomeScreenProps {
 const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
   return (
     <div className="px-6 py-8 space-y-8">
+      {/* Gia's Welcome Message */}
+      <div className="bg-gradient-to-br from-[#C53E5E]/5 to-[#C53E5E]/10 rounded-2xl p-6">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 bg-[#C53E5E] rounded-full flex items-center justify-center flex-shrink-0">
+            <span className="text-white font-bold text-lg">G</span>
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className="font-semibold text-gray-900">Welcome to your health journey!</h3>
+              <Sparkles className="w-4 h-4 text-[#C53E5E]" />
+            </div>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              I'm Gia, your personal health assistant! I'm here to make your health insurance experience simple, 
+              personalized, and actually enjoyable. Let's get you set up in just a few quick steps.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="text-center space-y-4">
         <h1 className="text-2xl font-bold text-gray-900 leading-tight">
-          Let's Personalize Your Gia Experience!
+          Let's Personalize Your Experience!
         </h1>
       </div>
 
@@ -22,14 +41,14 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
         {/* Language Preference */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <Globe className="w-6 h-6 text-gray-600" />
+            <Globe className="w-6 h-6 text-[#C53E5E]" />
             <Label className="text-lg font-semibold text-gray-900">Language Preference</Label>
           </div>
           <p className="text-sm text-gray-600 leading-relaxed">
             Select your preferred language for a personalized experience that makes navigating your benefits easier.
           </p>
           <Select defaultValue="english">
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full border-2 border-gray-200 focus:border-[#C53E5E] transition-colors duration-200">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
             <SelectContent>
@@ -43,7 +62,7 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
         {/* Communication Preferences */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <MessageSquare className="w-6 h-6 text-gray-600" />
+            <MessageSquare className="w-6 h-6 text-[#C53E5E]" />
             <Label className="text-lg font-semibold text-gray-900">Communication Preferences</Label>
           </div>
           <p className="text-sm text-gray-600 leading-relaxed">
@@ -63,9 +82,9 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
                 />
                 <label
                   htmlFor="email-toggle"
-                  className="block w-14 h-8 rounded-full bg-[#C53E5E] cursor-pointer relative"
+                  className="block w-14 h-8 rounded-full bg-[#C53E5E] cursor-pointer relative transition-colors duration-200"
                 >
-                  <span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform translate-x-6"></span>
+                  <span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform translate-x-6 shadow-sm"></span>
                 </label>
               </div>
             </div>
@@ -81,9 +100,9 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
                 />
                 <label
                   htmlFor="text-toggle"
-                  className="block w-14 h-8 rounded-full bg-gray-300 cursor-pointer relative"
+                  className="block w-14 h-8 rounded-full bg-gray-300 cursor-pointer relative transition-colors duration-200 hover:bg-gray-400"
                 >
-                  <span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform"></span>
+                  <span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform shadow-sm"></span>
                 </label>
               </div>
             </div>
@@ -94,7 +113,7 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
               <Button 
                 variant="outline" 
                 size="sm"
-                className="bg-gray-600 text-white border-gray-600 hover:bg-gray-700"
+                className="bg-[#C53E5E] text-white border-[#C53E5E] hover:bg-[#A02D47] hover:border-[#A02D47] transition-all duration-200"
               >
                 Turn On
               </Button>
@@ -106,15 +125,15 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
       <div className="space-y-3 pt-6">
         <Button 
           variant="ghost" 
-          className="w-full text-gray-600 hover:text-gray-800"
+          className="w-full text-gray-600 hover:text-gray-800 hover:bg-gray-50"
         >
-          Skip
+          Skip for now
         </Button>
         <Button 
           onClick={onNext}
-          className="w-full bg-gray-600 hover:bg-gray-700 text-white"
+          className="w-full bg-[#C53E5E] hover:bg-[#A02D47] text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
         >
-          Confirm Preferences
+          Let's Get Started! →
         </Button>
       </div>
     </div>
